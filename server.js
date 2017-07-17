@@ -3,9 +3,11 @@ const fs      = require('fs');
 const url     = require('url');
 const morgan  = require('morgan');
 const path    = require('path');
-const bodyParser = require('body-parser');
-const expresssession = require('express-session');
 const app     = express();
+const server  = require('http').Server(app);
+
+const expresssession = require('express-session');
+const bodyParser     = require('body-parser');
 
 const searchAPI = require('./server/api/search.js');
 
@@ -20,7 +22,6 @@ app.use(expresssession({
 // setup router 
 require('./server/app/song.js')(app);
 
-const server  = require('http').Server(app);
 server.listen(3000, () => {
     new searchAPI('despacito').search((err, result) => {
         console.log(result);

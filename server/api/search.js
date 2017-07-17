@@ -1,10 +1,20 @@
 const request = require('request');
 const cheerio = require('cheerio');
 const parse   = require('xml2json');
+const songAPI = require('./getSongData.js');
 const sourceM = "http://www.nhaccuatui.com/tim-kiem?q=";
+
 class search{
     constructor(searchValue){
         this.searchValue = searchValue;
+    }
+
+    findRealSong(key, url, fn){
+        new songAPI(url).get((err, location) => {
+            if(err) return fn(key, url);
+
+            return fn(key, location);
+        })
     }
 
     search(fn){
@@ -17,6 +27,7 @@ class search{
             const searchsListListen = $(body).find('span.icon_listen');
             
             const songs = []
+
 
             for(var i = 0; i < searchsListSong.length; i++){
                 const song = {

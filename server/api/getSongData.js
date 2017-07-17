@@ -20,7 +20,6 @@ class getSongData{
                     addBool = false;
                     request(`${sourceMURL}${sondId}` , (err2, res2, body2) => {
                         if(!JSON.parse(parse.toJson(body2)).tracklist) return fn({err: 'Link Underfined', result: null});
-                        const $      = cheerio.load(body2);
                         const info   = JSON.parse(parse.toJson(body2)).tracklist.track;
                         
                         return fn(null, info.location);
