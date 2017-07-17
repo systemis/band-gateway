@@ -15,7 +15,10 @@ class HomePage extends Component {
                     return alert(err);
                 }
 
-                alert(result);
+                
+                // alert(result);
+                document.getElementById('show-result').innerText = 'Link here'
+                document.getElementById('show-result').setAttribute('href', result);
             });
         })
     }
@@ -35,6 +38,7 @@ class HomePage extends Component {
                         type="submit"
                         value="GET"/>
                 </form>
+                <a id="show-result"></a>
             </div>
         );
     }
