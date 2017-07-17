@@ -7,6 +7,8 @@ const bodyParser = require('body-parser');
 const expresssession = require('express-session');
 const app     = express();
 
+const searchAPI = require('./server/api/search.js');
+
 app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] :response-time ms'));
 app.use(express.static(path.resolve(__dirname, './build')));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -20,4 +22,6 @@ require('./server/app/song.js')(app);
 
 const server  = require('http').Server(app);
 server.listen(3000, () => {
+    new searchAPI('1 2 3 4').search((err, result) => {
+    })
 })
