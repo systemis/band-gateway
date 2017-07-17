@@ -4,9 +4,10 @@ class song{
         this.link = link;
     }
 
-    getMusicLink(url, fn){
+    getMusicLink(fn){
+        const link = this.link;
         $.ajax({
-            url: `get/song-link/${url}`, type: 'POST',
+            url: `/get/song-link/`, type: 'POST', data: {url: link},
             success: data => {
                 fn(data.err, data.result);
             },
