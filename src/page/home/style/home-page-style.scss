@@ -1,3 +1,43 @@
 .home-page{
-    
+    @mixin character-group{
+        width: 40%;
+        @media screen and (max-width: 991px){
+            width: 50%;
+            @media screen and (max-width: 991px){
+                width: 80%;
+            }
+        }
+    }
+
+    @mixin flex(){
+        margin: 0;
+        padding: 0;
+    }
+
+    & .handler-group{
+        margin-top: 100px;
+    }
+
+    #form-input-url-get-song-link{
+        @include character-group();
+        position: relative;
+        & #input-url{
+            width: 100%;
+            padding: 6px 29px 6px 12px;
+            position: relative;
+        }
+
+        & .fa.fa-search{
+            position: absolute;
+            right: 25px;
+            line-height: 2.5;
+        }
+    }   
+
+    #show-results-search{
+        @include character-group();
+        & #show-result-mg{
+            width: 100%;
+        }
+    }
 }

@@ -1,8 +1,21 @@
 import React, { Component } from 'react';
-import $ from 'jquery';
-import songMG from '../../js/song.js';
+import $                    from 'jquery';
+import songMG               from '../../js/song.js';
+import './style/home-page-style.css';
 
 class HomePage extends Component {
+    changeMGValue(src){
+        const media     = document.getElementById('show-result-mg');
+        const source    = document.getElementById('play-song');
+        const playAgain = () => {
+            media.load();
+            media.play();
+        }
+
+        source.setAttribute('src', src);
+        setTimeout(playAgain(), 1000);
+    }
+
     onGetMusicLink(){
         $("#form-input-url-get-song-link").submit(e => {
             e.preventDefault();
@@ -12,11 +25,7 @@ class HomePage extends Component {
             new songMG(url).getMusicLink((err, result) => {
                 if(err) return document.getElementById('show-result').innerText = 'Error'
                 
-                console.log(err)
-                console.log(result);
-
-                document.getElementById('show-result').innerText = 'Link here'
-                document.getElementById('show-result').setAttribute('href', result);
+                this.changeMGValue(result);
             });
         })
     }
@@ -24,19 +33,32 @@ class HomePage extends Component {
     render() {
         return (
             <div className="home-page">
-                Home 
-                <form 
-                    id="form-input-url-get-song-link">
-                    <input 
-                        type="text" 
-                        id="input-url"
-                        name="input-url"
-                        placeholder="Type music href" />
-                    <input 
-                        type="submit"
-                        value="GET"/>
-                </form>
-                <a id="show-result"></a>
+                <div className="handler-group">
+                    <form 
+                        id="form-input-url-get-song-link" 
+                        className="container">
+                        <input 
+                            type="text" 
+                            id="input-url"
+                            name="input-url"
+                            placeholder="Type music href"/>
+                        <span 
+                            type="submit"
+                            className="fa fa-search" />
+                    </form>
+                    <div id="show-results-search" 
+                        className="container">
+                        <a id="show-result"></a>
+                        <audio 
+                            id="show-result-mg"
+                            controls>
+                            <source 
+                                id="play-song"
+                                nptype="audio/mpeg" />
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
             </div>
         );
     }

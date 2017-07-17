@@ -1,3 +1,33 @@
+.home-page .handler-group {
+  margin-top: 100px; }
+.home-page #form-input-url-get-song-link {
+  width: 40%;
+  position: relative; }
+  @media screen and (max-width: 991px) {
+    .home-page #form-input-url-get-song-link {
+      width: 50%; } }
+  @media screen and (max-width: 991px) and (max-width: 991px) {
+    .home-page #form-input-url-get-song-link {
+      width: 80%; } }
 
+  .home-page #form-input-url-get-song-link #input-url {
+    width: 100%;
+    padding: 6px 29px 6px 12px;
+    position: relative; }
+  .home-page #form-input-url-get-song-link .fa.fa-search {
+    position: absolute;
+    right: 25px;
+    line-height: 2.5; }
+.home-page #show-results-search {
+  width: 40%; }
+  @media screen and (max-width: 991px) {
+    .home-page #show-results-search {
+      width: 50%; } }
+  @media screen and (max-width: 991px) and (max-width: 991px) {
+    .home-page #show-results-search {
+      width: 80%; } }
+
+  .home-page #show-results-search #show-result-mg {
+    width: 100%; }
 
 /*# sourceMappingURL=home-page-style.css.map */
