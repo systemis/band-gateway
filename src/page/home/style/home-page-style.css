@@ -29,5 +29,25 @@
 
   .home-page #show-results-search #show-result-mg {
     width: 100%; }
+  .home-page #show-results-search .show-data {
+    height: 400px;
+    overflow: scroll; }
+    .home-page #show-results-search .show-data .song-item {
+      margin: 6px 0;
+      padding: 0 10px;
+      border-radius: 7px;
+      color: black; }
+      .home-page #show-results-search .show-data .song-item span.show-song-name {
+        background: transparent;
+        border: none;
+        font-size: 20px; }
+      .home-page #show-results-search .show-data .song-item span.show-singer-name {
+        font-size: 12px;
+        padding-left: 5px; }
+      .home-page #show-results-search .show-data .song-item:hover {
+        background: darkgrey; }
+      .home-page #show-results-search .show-data .song-item.active {
+        color: white;
+        background: darkgrey; }
 
 /*# sourceMappingURL=home-page-style.css.map */

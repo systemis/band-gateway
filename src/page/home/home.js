@@ -57,22 +57,25 @@ class HomePage extends Component {
                     </form>
                     <div id="show-results-search" 
                         className="container">
-                        {this.state.songsSearch.map((value, index) => {
-                            return(
-                                <div className="row song-item">
-                                    <button 
-                                        className="show-song-name"
+                        <div className="show-data">
+                            {this.state.songsSearch.map((value, index) => {
+                                return(
+                                    <div className="row song-item"
                                         onClick={() => {
-                                            console.log(value.location);
+                                            const list = document.getElementsByClassName("song-item");
+                                            for(var i = 0; i < list.length; i ++) { list[i].classList.remove('active')}
+                                            list[index].classList.add('active');
+
                                             new songMG(value.location).getMusicLink((err, result) => {
-                                                // if(err) return document.getElementById('show-result').innerText = 'Error'
                                                 this.changeMGValue(result);
                                             });
-                                        }}> {value.name}    </button>
-                                    <span className="show-singer-name"> {value.singerName} </span>xx
-                                </div>
-                            )
-                        })}
+                                        }}>
+                                        <span className="show-song-name"> {value.name}    </span>
+                                        <span className="show-singer-name"> {value.singerName} </span>xx
+                                    </div>
+                                )
+                            })}
+                        </div>
                         <audio 
                             id="show-result-mg"
                             controls>
