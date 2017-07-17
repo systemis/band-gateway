@@ -29,11 +29,7 @@ class HomePage extends Component {
             const url = $("#input-url").val();
             if(!url) return;
 
-            // new songMG(url).getMusicLink((err, result) => {
-            //     if(err) return document.getElementById('show-result').innerText = 'Error'
-                
-            //     this.changeMGValue(result);
-            // });
+            
 
             new searchAPI(url).search((err, result) => {
                 if(err) return;
@@ -64,7 +60,15 @@ class HomePage extends Component {
                         {this.state.songsSearch.map((value, index) => {
                             return(
                                 <div className="row song-item">
-                                    <span className="show-song-name"> {value.name}    </span>
+                                    <button 
+                                        className="show-song-name"
+                                        onClick={() => {
+                                            console.log(value.location);
+                                            new songMG(value.location).getMusicLink((err, result) => {
+                                                // if(err) return document.getElementById('show-result').innerText = 'Error'
+                                                this.changeMGValue(result);
+                                            });
+                                        }}> {value.name}    </button>
                                     <span className="show-singer-name"> {value.singerName} </span>xx
                                 </div>
                             )
