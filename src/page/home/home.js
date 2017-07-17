@@ -42,6 +42,7 @@ class HomePage extends Component {
     render() {
         return (
             <div className="home-page">
+                <h1 className="title">Music for every one</h1>
                 <div className="handler-group">
                     <form 
                         id="form-input-url-get-song-link" 

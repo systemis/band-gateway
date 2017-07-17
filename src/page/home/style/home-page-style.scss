@@ -1,6 +1,7 @@
 .home-page{
+    position: relative;
+    height: 100vh;
     @mixin character-group{
-        width: 40%;
         @media screen and (max-width: 991px){
             width: 50%;
             @media screen and (max-width: 991px){
@@ -14,13 +15,28 @@
         padding: 0;
     }
 
+    & .title{
+        text-align: center;
+        font-weight: bold;
+        margin: 0;
+        padding: 0;
+    }
+
     & .handler-group{
-        margin-top: 100px;
+        position: absolute;
+        right: 0;
+        left: 0;
+        top: 100px;
+        bottom: 0;
     }
 
     #form-input-url-get-song-link{
         @include character-group();
-        position: relative;
+        position: absolute;
+        left: 0;
+        right: 0;
+        width: 40%;
+        height: 5%;
         & #input-url{
             width: 100%;
             padding: 6px 29px 6px 12px;
@@ -36,13 +52,28 @@
 
     #show-results-search{
         @include character-group();
+        position: absolute;
+        top: 5%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 40%;
         & #show-result-mg{
+            position: absolute;
+            right: 0;
+            left: 0;
+            bottom: 0;
             width: 100%;
         }
 
         & .show-data{
-            height: 400px;
             overflow: scroll;
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 32px;
+            
             & .song-item{
                 margin: 6px 0;
                 padding: 0 10px;

@@ -1,53 +1,81 @@
-.home-page .handler-group {
-  margin-top: 100px; }
-.home-page #form-input-url-get-song-link {
-  width: 40%;
-  position: relative; }
-  @media screen and (max-width: 991px) {
-    .home-page #form-input-url-get-song-link {
-      width: 50%; } }
-  @media screen and (max-width: 991px) and (max-width: 991px) {
-    .home-page #form-input-url-get-song-link {
-      width: 80%; } }
-
-  .home-page #form-input-url-get-song-link #input-url {
-    width: 100%;
-    padding: 6px 29px 6px 12px;
-    position: relative; }
-  .home-page #form-input-url-get-song-link .fa.fa-search {
+.home-page {
+  position: relative;
+  height: 100vh; }
+  .home-page .title {
+    text-align: center;
+    font-weight: bold;
+    margin: 0;
+    padding: 0; }
+  .home-page .handler-group {
     position: absolute;
-    right: 25px;
-    line-height: 2.5; }
-.home-page #show-results-search {
-  width: 40%; }
-  @media screen and (max-width: 991px) {
-    .home-page #show-results-search {
-      width: 50%; } }
+    right: 0;
+    left: 0;
+    top: 100px;
+    bottom: 0; }
+  .home-page #form-input-url-get-song-link {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 40%;
+    height: 5%; }
+    @media screen and (max-width: 991px) {
+      .home-page #form-input-url-get-song-link {
+        width: 50%; } }
+  @media screen and (max-width: 991px) and (max-width: 991px) {
+    .home-page #form-input-url-get-song-link {
+      width: 80%; } }
+
+    .home-page #form-input-url-get-song-link #input-url {
+      width: 100%;
+      padding: 6px 29px 6px 12px;
+      position: relative; }
+    .home-page #form-input-url-get-song-link .fa.fa-search {
+      position: absolute;
+      right: 25px;
+      line-height: 2.5; }
+  .home-page #show-results-search {
+    position: absolute;
+    top: 5%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 40%; }
+    @media screen and (max-width: 991px) {
+      .home-page #show-results-search {
+        width: 50%; } }
   @media screen and (max-width: 991px) and (max-width: 991px) {
     .home-page #show-results-search {
       width: 80%; } }
 
-  .home-page #show-results-search #show-result-mg {
-    width: 100%; }
-  .home-page #show-results-search .show-data {
-    height: 400px;
-    overflow: scroll; }
-    .home-page #show-results-search .show-data .song-item {
-      margin: 6px 0;
-      padding: 0 10px;
-      border-radius: 7px;
-      color: black; }
-      .home-page #show-results-search .show-data .song-item span.show-song-name {
-        background: transparent;
-        border: none;
-        font-size: 20px; }
-      .home-page #show-results-search .show-data .song-item span.show-singer-name {
-        font-size: 12px;
-        padding-left: 5px; }
-      .home-page #show-results-search .show-data .song-item:hover {
-        background: darkgrey; }
-      .home-page #show-results-search .show-data .song-item.active {
-        color: white;
-        background: darkgrey; }
+    .home-page #show-results-search #show-result-mg {
+      position: absolute;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      width: 100%; }
+    .home-page #show-results-search .show-data {
+      overflow: scroll;
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 32px; }
+      .home-page #show-results-search .show-data .song-item {
+        margin: 6px 0;
+        padding: 0 10px;
+        border-radius: 7px;
+        color: black; }
+        .home-page #show-results-search .show-data .song-item span.show-song-name {
+          background: transparent;
+          border: none;
+          font-size: 20px; }
+        .home-page #show-results-search .show-data .song-item span.show-singer-name {
+          font-size: 12px;
+          padding-left: 5px; }
+        .home-page #show-results-search .show-data .song-item:hover {
+          background: darkgrey; }
+        .home-page #show-results-search .show-data .song-item.active {
+          color: white;
+          background: darkgrey; }
 
 /*# sourceMappingURL=home-page-style.css.map */
