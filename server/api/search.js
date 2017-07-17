@@ -10,17 +10,26 @@ class search{
     search(fn){
         request(`http://www.nhaccuatui.com/tim-kiem?q=${this.searchValue}`, (err, res, body) => {
             if(err) return fn(err, null);
-            
             const $ = cheerio.load(body);
-
-            const searchsListSong = $(body).find('a.name_song.search');
-            const hrefValue = [];
+            const searchsList       = $(body).find('li.list_song.search');
+            const searchsListSong   = $(body).find('a.name_song.search');
+            const searchsListSinger = $(body).find('a.name_singer');
+            const searchsListListen = $(body).find('span.icon_listen');
+            
+            const songs = []
 
             for(var i = 0; i < searchsListSong.length; i++){
-                console.log(searchsListSong[i].attribs.href);
-            }
+                const song = {
+                    name: searchsListSong[i].attribs.title,
+                    location: searchsListSong[i].attribs.href,
+                    singerName: searchsListSinger[i].children[0].data,
+                }
 
-            fn(null, searchsListSong);
+                songs.push(song);
+                if(i === searchsListSong.length - 1){
+                    fn(null, songs);
+                }
+            }
         })
     }
 }

@@ -22,6 +22,7 @@ require('./server/app/song.js')(app);
 
 const server  = require('http').Server(app);
 server.listen(3000, () => {
-    new searchAPI('1 2 3 4').search((err, result) => {
+    new searchAPI('despacito').search((err, result) => {
+        console.log(result);
     })
 })
