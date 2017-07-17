@@ -10,13 +10,11 @@ class HomePage extends Component {
             if(!url) return;
 
             new songMG(url).getMusicLink((err, result) => {
-                if(err){
-                    console.log(err);
-                    return alert(err);
-                }
-
+                if(err) return document.getElementById('show-result').innerText = 'Error'
                 
-                // alert(result);
+                console.log(err)
+                console.log(result);
+
                 document.getElementById('show-result').innerText = 'Link here'
                 document.getElementById('show-result').setAttribute('href', result);
             });
