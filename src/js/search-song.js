@@ -12,3 +12,5 @@ class searchSong{
         })
     }
 }
+
+export default searchSong;

@@ -3,8 +3,9 @@ const searchAPI      = require('../api/search.js');
 module.exports = app => {
     app.post('/search/songs/:value', (req, res) => {
         const searchValue = req.params.value;
+        console.log(searchValue);
         new searchAPI(searchValue).search((err, songs) => {
-            res.send({err: err, result: result});
+            res.send({err: err, result: songs});
         })
     })
 

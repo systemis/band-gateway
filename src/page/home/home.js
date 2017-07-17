@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
 import $                    from 'jquery';
 import songMG               from '../../js/song.js';
+import searchAPI            from '../../js/search-song.js';
 import './style/home-page-style.css';
 
 class HomePage extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            songsSearch: []
+        }
+    }
     changeMGValue(src){
         const media     = document.getElementById('show-result-mg');
         const source    = document.getElementById('play-song');
@@ -22,11 +29,17 @@ class HomePage extends Component {
             const url = $("#input-url").val();
             if(!url) return;
 
-            new songMG(url).getMusicLink((err, result) => {
-                if(err) return document.getElementById('show-result').innerText = 'Error'
+            // new songMG(url).getMusicLink((err, result) => {
+            //     if(err) return document.getElementById('show-result').innerText = 'Error'
                 
-                this.changeMGValue(result);
-            });
+            //     this.changeMGValue(result);
+            // });
+
+            new searchAPI(url).search((err, result) => {
+                if(err) return;
+
+                this.setState({songsSearch: result});
+            })
         })
     }
 
@@ -48,7 +61,14 @@ class HomePage extends Component {
                     </form>
                     <div id="show-results-search" 
                         className="container">
-                        <a id="show-result"></a>
+                        {this.state.songsSearch.map((value, index) => {
+                            return(
+                                <div className="row song-item">
+                                    <span className="show-song-name"> {value.name}    </span>
+                                    <span className="show-singer-name"> {value.singerName} </span>xx
+                                </div>
+                            )
+                        })}
                         <audio 
                             id="show-result-mg"
                             controls>
@@ -68,6 +88,12 @@ class HomePage extends Component {
         $(document).ready(() => {
             sefl.onGetMusicLink();      
         })  
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log(nextState);
+        this.render();
+        return true;
     }
 }
 
