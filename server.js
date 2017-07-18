@@ -1,3 +1,5 @@
+'use strict'
+
 const express = require('express');
 const fs      = require('fs');
 const url     = require('url');
@@ -22,7 +24,7 @@ app.use(expresssession({
 // setup router 
 require('./server/app/song.js')(app);
 
-server.listen(3000, () => {
+server.listen(process.env.PORT || 3000, () => {
     new searchAPI('despacito').search((err, result) => {
         console.log(result);
     })
