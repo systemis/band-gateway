@@ -24,7 +24,7 @@ app.use(expresssession({
 // setup router 
 require('./server/app/song.js')(app);
 
-server.listen(process.env.PORT || 3000, () => {
+server.listen(process.env.PORT || 1999, () => {
     new searchAPI('despacito').search((err, result) => {
         console.log(result);
     })

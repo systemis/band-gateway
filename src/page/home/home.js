@@ -3,6 +3,8 @@ import $                    from 'jquery';
 import songMG               from '../../js/song.js';
 import searchAPI            from '../../js/search-song.js';
 import './style/home-page-style.css';
+import { SSL_OP_NETSCAPE_DEMO_CIPHER_CHANGE_BUG } from 'constants';
+import { error } from 'util';
 
 class HomePage extends Component {
     constructor(props){
@@ -67,7 +69,8 @@ class HomePage extends Component {
                                             for(var i = 0; i < list.length; i ++) { list[i].classList.remove('active')}
                                             list[index].classList.add('active');
 
-                                            new songMG(value.location).getMusicLink((err, result) => {
+                                            console.log(this.state.songsSearch[index].location);
+                                            new songMG(this.state.songsSearch[index].location).getMusicLink((err, result) => {
                                                 this.changeMGValue(result);
                                             });
                                         }}>

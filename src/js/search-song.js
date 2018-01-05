@@ -6,7 +6,7 @@ class searchSong{
 
     search(fn){
         $.ajax({
-            url: `/search/songs/${this.searchValue}`, type: `POST`,
+            url: `http://localhost:1999/search/songs/${this.searchValue}`, type: `POST`,
             success: data => fn(data.err, data.result),
             error: err => fn(err, null)
         })

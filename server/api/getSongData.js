@@ -1,7 +1,7 @@
 const request = require('request');
 const cheerio = require('cheerio');
 const parse   = require('xml2json');
-const sourceMURL = "http://www.nhaccuatui.com/flash/xml?key1=";
+const sourceMURL = "https://www.nhaccuatui.com/flash/xml?key1=";
 
 class getSongData{
     constructor(url){
@@ -14,6 +14,7 @@ class getSongData{
             var indexOfUrlData = body.indexOf(sourceMURL);
             var addBool = false;
             var sondId  = "";
+            console.log(indexOfUrlData);
             for(var i = indexOfUrlData; i < body.length; i++){
                 if(body[i] === '"'){
                     i = body.length;
